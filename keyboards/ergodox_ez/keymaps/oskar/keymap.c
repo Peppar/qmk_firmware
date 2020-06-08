@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,  BP_EXLM,  BP_AT,    BP_HASH,  BP_DLR,   BP_PERC,  _______,  _______,  BP_CIRC,  BP_AMPR,  BP_TILD,   BP_EQL,   BP_ASTR,  KC_F12,
     _______,  BP_LCBR,  BP_RCBR,  BP_LPRN,  BP_RPRN,  BP_EURO,                      BP_PIPE,  BP_LBRC,  BP_RBRC,   BP_LESS,  BP_GRTR,  _______,
     _______,  BP_MDSH,  BP_NDSH,  BP_LGIL,  BP_RGIL,  BP_OE,    _______,  _______,  BP_AE,    BP_DQOT,  BP_GRV,    BP_QEST,  BP_COLN,  _______,
-    _______,  _______,  _______,  _______,  _______,                                           _______,      _______,       _______,      _______,      _______,
+    _______,  _______,  _______,  _______,  _______,                                          _______,  _______,   _______,  _______,  _______,
                                                       _______,  _______,  _______,  _______,
                                                                 _______,  _______,
                                             _______,  _______,  _______,  _______,  _______,  _______
