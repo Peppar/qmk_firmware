@@ -38,10 +38,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_PAUSE,    US_Q,     US_W,     US_E,      US_R,     US_T,     KC_DELETE,  US_BSLS,        US_Y,     US_U,       US_I,      US_O,            US_P,           US_ARNG,
     KC_ESCAPE,   US_A,     US_S,     US_D,      US_F,     US_G,                                 US_H,     US_J,       US_K,      US_L,            US_ODIA,        US_ADIA,
     KC_CAPS,     US_Z,     US_X,     US_C,      US_V,     US_B,     KC_TAB,     US_SLSH,        US_N,     US_M,       US_COMM,   US_DOT,          US_SCLN,        USR_SQUOT,
-    _______,     _______,  _______,  KC_RCTRL,  KC_LSHIFT,                                                MO(1),      KC_RCTRL,  _______,         _______,        _______,
-                                                     KC_LGUI,  KC_APPLICATION,  KC_WWW_BACK,  KC_WWW_FORWARD,
-                                                               LALT(KC_RCTRL),  LALT(KC_LSHIFT),
-                          LT(2,KC_SPACE),  LALT_T(KC_BSPACE),  LSFT(KC_RCTRL),  USR_MEH, MO(4),  LT(3,KC_ENTER)
+    _______,     KC_APPLICATION,  KC_LGUI,  KC_RCTRL,  KC_LSHIFT,                                     MO(1),      KC_RCTRL,  _______,         _______,        _______,
+                                                    LALT(KC_LSHIFT),  USR_MEH,  _______,  _______,
+                                                               LALT(KC_RCTRL),  KC_WWW_FORWARD,
+                          LT(2,KC_SPACE),  LALT_T(KC_BSPACE),  LSFT(KC_RCTRL),  KC_WWW_BACK, MO(4),  LT(3,KC_ENTER)
   ),
   [1] = LAYOUT_ergodox_pretty(
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,
@@ -162,6 +162,11 @@ static void tap_composed_key(uint16_t deadkey, uint16_t latinkey) {
   register_code16(latinkey);
   unregister_code16(latinkey);
 }
+
+//static void tap_dead_key(uint16_t deadkey) {
+//  bool leftCtrlPressed = (keyboard_report->mods & MOD_BIT(KC_LCTRL)) != 0;
+//  bool rightShiftPressed = (keyboard_report->mods & MOD_BIT(KC_RCTRL)) != 0;
+//}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
