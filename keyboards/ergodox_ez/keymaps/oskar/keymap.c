@@ -36,50 +36,40 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    KC_PSCREEN,  US_CIRC,         US_EACU,  US_UNDS,   USR_SQUOT,  KC_PAUSE,  KC_INSERT,  KC_SCROLLLOCK,  US_DQUO,  USR_EGRV,   US_MINS,   US_CCED,         USR_AGRV,       USR_UGRV,
-    KC_ESCAPE,   US_Q,            US_W,     US_E,      US_R,       US_T,      KC_DELETE,  US_BSLS,        US_Y,     US_U,       US_I,      US_O,            US_P,           US_ARNG,
-    KC_RCTRL,    US_A,            US_S,     US_D,      US_F,       US_G,                                  US_H,     US_J,       US_K,      US_L,            US_ODIA,        US_ADIA,
-    KC_LSHIFT,   US_Z,            US_X,     US_C,      US_V,       US_B,      KC_TAB,     US_SLSH,        US_N,     US_M,       US_COMM,   US_DOT,          US_SCLN,        KC_RSHIFT,
-    KC_CAPS,     _______,         KC_LGUI,  KC_LALT,   LT(2,KC_BSPACE),                                             MO(1),      MO(4),     _______,         _______,        _______,
-                                                    KC_APPLICATION,  USR_MEH,  _______,  _______,
-                                                               LALT(KC_RCTRL),  KC_WWW_FORWARD,
-                          KC_SPACE,  KC_WWW_BACK,  KC_WWW_FORWARD,  KC_WWW_BACK, MO(4),  LT(3,KC_ENTER)
+    KC_PAUSE,    US_CIRC,         US_EACU,  US_UNDS,   USR_SQUOT,  KC_PSCREEN,  KC_INSERT,  KC_SCROLLLOCK,  US_DQUO,  USR_EGRV,   US_MINS,   US_CCED,         USR_AGRV,       USR_UGRV,
+    KC_ESCAPE,   US_Q,            US_W,     US_E,      US_R,       US_T,        KC_DELETE,  US_BSLS,        US_Y,     US_U,       US_I,      US_O,            US_P,           US_ARNG,
+    KC_RCTRL,    US_A,            US_S,     US_D,      US_F,       US_G,                                    US_H,     US_J,       US_K,      US_L,            US_ODIA,        US_ADIA,
+    KC_LSHIFT,   US_Z,            US_X,     US_C,      US_V,       US_B,        KC_TAB,     US_SLSH,        US_N,     US_M,       US_COMM,   US_DOT,          US_SCLN,        KC_RSHIFT,
+    KC_CAPS,     KC_APPLICATION,  KC_LGUI,  KC_LALT,   LT(1,KC_BSPACE),                                               MO(2),      MO(3),     _______,         _______,        _______,
+                                                   KC_ENTER,  _______,  _______,  _______,
+                                                              _______,  _______,
+                          KC_SPACE,  KC_WWW_BACK,  KC_WWW_FORWARD,  _______, MO(3),  KC_ENTER
   ),
   [1] = LAYOUT_ergodox_pretty(
-    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,
-    _______,  USR_GRV,  US_AT,    US_HASH,  US_DLR,   US_PERC,  _______,  _______,  USR_CIRC, US_AMPR,  US_ASTR,   US_EQL,   USR_TILD, _______,
-    _______,  US_LCBR,  US_RCBR,  US_LPRN,  US_RPRN,  US_EURO,                      US_PIPE,  US_LBRC,  US_RBRC,   US_LABK,  US_RABK,  _______,
-    _______,  _______,  USR_DQOT, US_LDAQ,  US_RDAQ,  US_OE,    _______,  _______,  US_AE,    US_PLUS,  US_QUES,   US_EXLM,  US_COLN,  _______,
-    _______,  _______,  _______,  _______,  _______,                                          _______,  _______,   _______,  _______,  _______,
+    _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,   US_SLSH,  US_ASTR,  _______,      _______,
+    _______,  USR_GRV,  US_LPRN,  US_RPRN,  US_AMPR,  US_HASH,   _______,  _______,  _______,  US_7,      US_8,     US_9,     US_MINS,      _______,
+    _______,  US_LCBR,  US_RCBR,  US_LBRC,  US_RBRC,  US_PIPE,                       _______,  US_4,      US_5,     US_6,     US_PLUS,      _______,
+    _______,  US_AE,    US_EURO,  US_BSLS,  US_SLSH,  USR_CIRC,  _______,  _______,  _______,  US_1,      US_2,     US_3,     KC_KP_ENTER,  _______,
+    _______,  _______,  _______,  _______,  _______,                                           US_0,      _______,  US_DOT,   _______,      _______,
                                                       _______,  _______,  _______,  _______,
                                                                 _______,  _______,
                                             _______,  _______,  _______,  _______,  _______,  _______
   ),
   [2] = LAYOUT_ergodox_pretty(
-    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   US_SLSH,  US_ASTR,  _______,      _______,
-    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  US_7,      US_8,     US_9,     US_MINS,      _______,
-    _______,  _______,  _______,  US_BSLS,  US_SLSH,  _______,                      _______,  US_4,      US_5,     US_6,     US_PLUS,      _______,
-    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  US_1,      US_2,     US_3,     KC_KP_ENTER,  _______,
-    _______,  _______,  _______,  _______,  _______,                                          US_0,      _______,  US_DOT,   _______,      _______,
-                                                      _______,  _______,  _______,  _______,
-                                                                _______,  _______,
-                                            _______,  _______,  _______,  _______,  _______,  _______
-  ),
-  [3] = LAYOUT_ergodox_pretty(
-    _______,  _______,        _______,        _______,      _______,         _______,            _______,  _______,  _______,             _______,     _______,    _______,  _______,     RESET,
-    _______,  KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_UP,  KC_MS_WH_RIGHT,  KC_AUDIO_VOL_UP,    _______,  _______,  KC_BRIGHTNESS_UP,    LED_LEVEL,   KC_PGDOWN,  KC_PGUP,  _______,     _______,
-    _______,  KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_UP,     KC_MS_RIGHT,     KC_AUDIO_VOL_DOWN,                      KC_BRIGHTNESS_DOWN,  KC_LEFT,     KC_DOWN,    KC_UP,    KC_RIGHT,    _______,
-    _______,  _______,        _______,        _______,      _______,         KC_AUDIO_MUTE,      _______,  _______,  _______,             KC_MS_BTN1,  KC_END,     KC_HOME,  KC_MS_BTN2,  KC_MS_BTN3,
-    _______,  _______,        _______,        _______,      _______,                                                                      _______,     _______,    _______,  _______,     _______,
+    _______,  _______,   _______,  _______,  _______,   _______,  _______,  _______,  _______,            _______,    _______,    _______,  _______,   RESET,
+    _______,  USR_TILD,  US_LABK,  US_RABK,  USR_DQOT,  US_AT,    _______,  _______,  KC_AUDIO_VOL_UP,    LED_LEVEL,  KC_PGDOWN,  KC_PGUP,  _______,   _______,
+    _______,  US_EQL,    US_PLUS,  US_ASTR,  US_COLN,   US_DLR,                       KC_AUDIO_VOL_DOWN,  KC_LEFT,    KC_DOWN,    KC_UP,    KC_RIGHT,  _______,
+    _______,  US_LDAQ,   US_RDAQ,  US_QUES,  US_EXLM,   US_PERC,  _______,  _______,  KC_AUDIO_MUTE,      _______,    KC_END,     KC_HOME,  _______,   _______,
+    _______,  _______,   _______,  _______,  _______,                                                     _______,    _______,    _______,  _______,   _______,
                                                                                        _______,  _______,  _______,  _______,
                                                                                                  _______,  _______,
                                                                              _______,  _______,  _______,  _______,  _______,  _______
   ),
-  [4] = LAYOUT_ergodox_pretty(
+  [3] = LAYOUT_ergodox_pretty(
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-    _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,                        KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   _______,
-    _______,  KC_F11,   KC_F12,   KC_F13,   KC_F14,   KC_F15,   _______,  _______,  KC_F16,   KC_F17,   KC_F18,   KC_F19,   KC_F20,   _______,
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    _______,
+    _______,  _______,  _______,  _______,  _______,  _______,                      _______,  KC_F5,    KC_F6,    KC_F7,    KC_F8,    _______,
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,
     _______,  _______,  _______,  _______,  _______,                                          _______,  _______,  _______,  _______,  _______,
                                                       _______,  _______,  _______,  _______,
                                                                 _______,  _______,
