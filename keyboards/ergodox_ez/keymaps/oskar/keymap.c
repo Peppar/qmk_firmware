@@ -32,16 +32,18 @@ enum custom_keycodes {
   USR_MEH,
 };
 
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    KC_PSCREEN,  US_CIRC,  US_EACU,  US_UNDS,   _______,  _______,  KC_INSERT,  KC_SCROLLLOCK,  US_DQUO,  USR_EGRV,   US_MINS,   US_CCED,         USR_AGRV,       USR_UGRV,
-    KC_PAUSE,    US_Q,     US_W,     US_E,      US_R,     US_T,     KC_DELETE,  US_BSLS,        US_Y,     US_U,       US_I,      US_O,            US_P,           US_ARNG,
-    KC_ESCAPE,   US_A,     US_S,     US_D,      US_F,     US_G,                                 US_H,     US_J,       US_K,      US_L,            US_ODIA,        US_ADIA,
-    KC_CAPS,     US_Z,     US_X,     US_C,      US_V,     US_B,     KC_TAB,     US_SLSH,        US_N,     US_M,       US_COMM,   US_DOT,          US_SCLN,        USR_SQUOT,
-    _______,     KC_APPLICATION,  KC_LGUI,  KC_RCTRL,  KC_LSHIFT,                                     MO(1),      KC_RCTRL,  _______,         _______,        _______,
-                                                    LALT(KC_LSHIFT),  USR_MEH,  _______,  _______,
+    KC_PSCREEN,  US_CIRC,         US_EACU,  US_UNDS,   USR_SQUOT,  KC_PAUSE,  KC_INSERT,  KC_SCROLLLOCK,  US_DQUO,  USR_EGRV,   US_MINS,   US_CCED,         USR_AGRV,       USR_UGRV,
+    KC_ESCAPE,   US_Q,            US_W,     US_E,      US_R,       US_T,      KC_DELETE,  US_BSLS,        US_Y,     US_U,       US_I,      US_O,            US_P,           US_ARNG,
+    KC_RCTRL,    US_A,            US_S,     US_D,      US_F,       US_G,                                  US_H,     US_J,       US_K,      US_L,            US_ODIA,        US_ADIA,
+    KC_LSHIFT,   US_Z,            US_X,     US_C,      US_V,       US_B,      KC_TAB,     US_SLSH,        US_N,     US_M,       US_COMM,   US_DOT,          US_SCLN,        KC_RSHIFT,
+    KC_CAPS,     _______,         KC_LGUI,  KC_LALT,   LT(2,KC_BSPACE),                                             MO(1),      MO(4),     _______,         _______,        _______,
+                                                    KC_APPLICATION,  USR_MEH,  _______,  _______,
                                                                LALT(KC_RCTRL),  KC_WWW_FORWARD,
-                          LT(2,KC_SPACE),  LALT_T(KC_BSPACE),  LSFT(KC_RCTRL),  KC_WWW_BACK, MO(4),  LT(3,KC_ENTER)
+                          KC_SPACE,  KC_WWW_BACK,  KC_WWW_FORWARD,  KC_WWW_BACK, MO(4),  LT(3,KC_ENTER)
   ),
   [1] = LAYOUT_ergodox_pretty(
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,
@@ -56,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_ergodox_pretty(
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   US_SLSH,  US_ASTR,  _______,      _______,
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  US_7,      US_8,     US_9,     US_MINS,      _______,
-    _______,  _______,  _______,  _______,  _______,  _______,                      _______,  US_4,      US_5,     US_6,     US_PLUS,      _______,
+    _______,  _______,  _______,  US_BSLS,  US_SLSH,  _______,                      _______,  US_4,      US_5,     US_6,     US_PLUS,      _______,
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  US_1,      US_2,     US_3,     KC_KP_ENTER,  _______,
     _______,  _______,  _______,  _______,  _______,                                          US_0,      _______,  US_DOT,   _______,      _______,
                                                       _______,  _______,  _______,  _______,
