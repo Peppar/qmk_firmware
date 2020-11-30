@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "keymap_us_international.h"
+#include "timer.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -30,26 +31,26 @@ enum custom_keycodes {
   USR_AGRV,
   USR_CAPS,
   USR_MEH,
+  USR_LLAYER,
 };
-
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    KC_PAUSE,    US_CIRC,         US_EACU,  US_UNDS,   USR_SQUOT,  KC_PSCREEN,  KC_INSERT,  KC_SCROLLLOCK,  US_DQUO,  USR_EGRV,   US_MINS,   US_CCED,         USR_AGRV,       USR_UGRV,
-    KC_ESCAPE,   US_Q,            US_W,     US_E,      US_R,       US_T,        KC_DELETE,  US_BSLS,        US_Y,     US_U,       US_I,      US_O,            US_P,           US_ARNG,
-    KC_RCTRL,    US_A,            US_S,     US_D,      US_F,       US_G,                                    US_H,     US_J,       US_K,      US_L,            US_ODIA,        US_ADIA,
-    KC_LSHIFT,   US_Z,            US_X,     US_C,      US_V,       US_B,        KC_TAB,     US_SLSH,        US_N,     US_M,       US_COMM,   US_DOT,          US_SCLN,        KC_RSHIFT,
-    KC_CAPS,     KC_APPLICATION,  KC_LGUI,  KC_LALT,   LT(1,KC_BSPACE),                                               MO(2),      MO(3),     _______,         _______,        _______,
-                                                   KC_ENTER,  _______,  _______,  _______,
-                                                              _______,  _______,
-                          KC_SPACE,  KC_WWW_BACK,  KC_WWW_FORWARD,  _______, MO(3),  KC_ENTER
+    KC_PAUSE,    US_CIRC,         US_EACU,  US_UNDS,   USR_SQUOT,  KC_SCROLLLOCK,  USR_CAPS,   _______,  US_DQUO,  USR_EGRV,   US_MINS,   US_CCED,         USR_AGRV,       USR_UGRV,
+    KC_ESCAPE,   US_Q,            US_W,     US_E,      US_R,       US_T,           KC_DELETE,  US_BSLS,  US_Y,     US_U,       US_I,      US_O,            US_P,           US_ARNG,
+    KC_RCTRL,    US_A,            US_S,     US_D,      US_F,       US_G,                                 US_H,     US_J,       US_K,      US_L,            US_ODIA,        US_ADIA,
+    KC_LSHIFT,   US_Z,            US_X,     US_C,      US_V,       US_B,           KC_TAB,     US_SLSH,  US_N,     US_M,       US_COMM,   US_DOT,          US_SCLN,        KC_RSHIFT,
+    _______,     KC_APPLICATION,  KC_LGUI,  KC_LALT,   USR_LLAYER,                                                 MO(2),      MO(3),     _______,         _______,        _______,
+                                                                      KC_INSERT,  KC_PSCREEN,  _______,  _______,
+                                                                              KC_WWW_FORWARD,  _______,
+                                                           KC_SPACE,  KC_ENTER,  KC_WWW_BACK,  _______,  _______,  KC_ENTER
   ),
   [1] = LAYOUT_ergodox_pretty(
-    _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,  XXXXXXX,   US_SLSH,  US_ASTR,  XXXXXXX,      _______,
-    _______,  USR_GRV,  US_LPRN,  US_RPRN,  US_AMPR,  US_HASH,   _______,  _______,  _______,  US_7,      US_8,     US_9,     US_MINS,      _______,
-    _______,  US_LCBR,  US_RCBR,  US_LBRC,  US_RBRC,  US_PIPE,                       _______,  US_4,      US_5,     US_6,     US_PLUS,      _______,
-    _______,  US_AE,    US_EURO,  US_BSLS,  US_SLSH,  USR_CIRC,  _______,  _______,  _______,  US_1,      US_2,     US_3,     KC_KP_ENTER,  _______,
+    _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  XXXXXXX,  XXXXXXX,   US_SLSH,  US_ASTR,  XXXXXXX,      _______,
+    _______,  USR_GRV,  US_LPRN,  US_RPRN,  US_AMPR,  US_HASH,   _______,  _______,  XXXXXXX,  US_7,      US_8,     US_9,     US_MINS,      _______,
+    _______,  US_LCBR,  US_RCBR,  US_LBRC,  US_RBRC,  US_PIPE,                       XXXXXXX,  US_4,      US_5,     US_6,     US_PLUS,      _______,
+    _______,  US_LABK,  US_RABK,  US_BSLS,  US_SLSH,  USR_CIRC,  _______,  _______,  XXXXXXX,  US_1,      US_2,     US_3,     KC_KP_ENTER,  _______,
     _______,  _______,  _______,  _______,  _______,                                           US_0,      XXXXXXX,  US_DOT,   XXXXXXX,      _______,
                                                       _______,  _______,  _______,  _______,
                                                                 _______,  _______,
@@ -57,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [2] = LAYOUT_ergodox_pretty(
     _______,  _______,   _______,  _______,  _______,   _______,  _______,  _______,  _______,            _______,    _______,    _______,  _______,   RESET,
-    _______,  USR_TILD,  US_LABK,  US_RABK,  USR_DQOT,  US_AT,    _______,  _______,  KC_AUDIO_VOL_UP,    LED_LEVEL,  KC_PGDOWN,  KC_PGUP,  XXXXXXX,   _______,
-    _______,  US_EQL,    US_PLUS,  US_ASTR,  US_COLN,   US_DLR,                       KC_AUDIO_VOL_DOWN,  KC_LEFT,    KC_DOWN,    KC_UP,    KC_RIGHT,  _______,
-    _______,  US_LDAQ,   US_RDAQ,  US_QUES,  US_EXLM,   US_PERC,  _______,  _______,  KC_AUDIO_MUTE,      XXXXXXX,    KC_END,     KC_HOME,  XXXXXXX,   _______,
+    _______,  USR_TILD,  US_LDAQ,  US_RDAQ,  USR_DQOT,  US_AT,    _______,  _______,  KC_AUDIO_VOL_UP,    LED_LEVEL,  KC_PGDOWN,  KC_PGUP,  XXXXXXX,   KC_BRIGHTNESS_UP,
+    _______,  US_EQL,    US_PLUS,  US_ASTR,  US_COLN,   US_DLR,                       KC_AUDIO_VOL_DOWN,  KC_LEFT,    KC_DOWN,    KC_UP,    KC_RIGHT,  KC_BRIGHTNESS_DOWN,
+    _______,  US_AE,     US_EURO,  US_QUES,  US_EXLM,   US_PERC,  _______,  _______,  KC_AUDIO_MUTE,      XXXXXXX,    KC_END,     KC_HOME,  XXXXXXX,   _______,
     _______,  _______,   _______,  _______,  _______,                                                     _______,    _______,    _______,  _______,   _______,
                                                                                        _______,  _______,  _______,  _______,
                                                                                                  _______,  _______,
@@ -76,59 +77,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______,  _______,  _______,  _______,  _______,  _______
   ),
 };
-
-//const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-//  [0] = LAYOUT_ergodox_pretty(
-//    KC_PSCREEN,  BP_DCRC,  BP_ECUT,  BP_UNDS,   _______,  _______,  KC_INSERT,  KC_SCROLLLOCK,  BP_DTRM,  BP_EGRV,    BP_MINS,   BP_CCED,         BP_AGRV,        BP_UGRV,
-//    KC_PAUSE,    BP_Q,     BP_W,     BP_E,      BP_R,     BP_T,     KC_DELETE,  BP_BSLS,        BP_Y,     BP_U,       BP_I,      BP_O,            BP_P,           USR_ARING,
-//    KC_ESCAPE,   BP_A,     BP_S,     BP_D,      BP_F,     BP_G,                                 BP_H,     BP_J,       BP_K,      BP_L,            USR_ODIAE,      USR_ADIAE,
-//    USR_CAPS,    BP_Z,     BP_X,     BP_C,      BP_V,     BP_B,     KC_TAB,     BP_SLSH,        BP_N,     BP_M,       BP_COMM,   BP_DOT,          BP_SCLN,        BP_SQUOT,
-//    _______,     _______,  _______,  KC_RCTRL,  KC_LSHIFT,                                                MO(1),      KC_RCTRL,  _______,         _______,        _______,
-//                                                     KC_LGUI,  KC_APPLICATION,  KC_WWW_BACK,  KC_WWW_FORWARD,
-//                                                               LALT(KC_RCTRL),  LALT(KC_LSHIFT),
-//                          LT(2,KC_SPACE),  LALT_T(KC_BSPACE),  LSFT(KC_RCTRL),  USR_MEH, MO(4),  LT(3,KC_ENTER)
-//  ),
-//  [1] = LAYOUT_ergodox_pretty(
-//    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,
-//    _______,  BP_GRV,   BP_AT,    BP_HASH,  BP_DLR,   BP_PERC,  _______,  _______,  BP_CIRC,  BP_AMPR,  BP_ASTR,   BP_EQL,   BP_TILD,  _______,
-//    _______,  BP_LCBR,  BP_RCBR,  BP_LPRN,  BP_RPRN,  BP_EURO,                      BP_PIPE,  BP_LBRC,  BP_RBRC,   BP_LESS,  BP_GRTR,  _______,
-//    _______,  BP_MDSH,  BP_DQOT,  BP_LGIL,  BP_RGIL,  BP_OE,    _______,  _______,  BP_AE,    BP_PLUS,  BP_QEST,   BP_EXLM,  BP_COLN,  _______,
-//    _______,  _______,  _______,  _______,  _______,                                          _______,  _______,   _______,  _______,  _______,
-//                                                      _______,  _______,  _______,  _______,
-//                                                                _______,  _______,
-//                                            _______,  _______,  _______,  _______,  _______,  _______
-//  ),
-//  [2] = LAYOUT_ergodox_pretty(
-//    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   BP_SLSH,  BP_ASTR,  _______,      _______,
-//    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  BP_7,      BP_8,     BP_9,     BP_MINS,      _______,
-//    _______,  _______,  _______,  _______,  _______,  _______,                      _______,  BP_4,      BP_5,     BP_6,     BP_PLUS,      _______,
-//    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  BP_1,      BP_2,     BP_3,     KC_KP_ENTER,  _______,
-//    _______,  _______,  _______,  _______,  _______,                                          BP_0,      _______,  BP_DOT,   _______,      _______,
-//                                                      _______,  _______,  _______,  _______,
-//                                                                _______,  _______,
-//                                            _______,  _______,  _______,  _______,  _______,  _______
-//  ),
-//  [3] = LAYOUT_ergodox_pretty(
-//    _______,  _______,        _______,        _______,      _______,         _______,            _______,  _______,  _______,             _______,     _______,    _______,  _______,     RESET,
-//    _______,  KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_UP,  KC_MS_WH_RIGHT,  KC_AUDIO_VOL_UP,    _______,  _______,  KC_BRIGHTNESS_UP,    LED_LEVEL,   KC_PGDOWN,  KC_PGUP,  _______,     _______,
-//    _______,  KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_UP,     KC_MS_RIGHT,     KC_AUDIO_VOL_DOWN,                      KC_BRIGHTNESS_DOWN,  KC_LEFT,     KC_DOWN,    KC_UP,    KC_RIGHT,    _______,
-//    _______,  _______,        _______,        _______,      _______,         KC_AUDIO_MUTE,      _______,  _______,  _______,             KC_MS_BTN1,  KC_END,     KC_HOME,  KC_MS_BTN2,  KC_MS_BTN3,
-//    _______,  _______,        _______,        _______,      _______,                                                                      _______,     _______,    _______,  _______,     _______,
-//                                                                                       _______,  _______,  _______,  _______,
-//                                                                                                 _______,  _______,
-//                                                                             _______,  _______,  _______,  _______,  _______,  _______
-//  ),
-//  [4] = LAYOUT_ergodox_pretty(
-//    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-//    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-//    _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,                        KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   _______,
-//    _______,  KC_F11,   KC_F12,   KC_F13,   KC_F14,   KC_F15,   _______,  _______,  KC_F16,   KC_F17,   KC_F18,   KC_F19,   KC_F20,   _______,
-//    _______,  _______,  _______,  _______,  _______,                                          _______,  _______,  _______,  _______,  _______,
-//                                                      _______,  _______,  _______,  _______,
-//                                                                _______,  _______,
-//                                            _______,  _______,  _______,  _______,  _______,  _______
-//  ),
-//};
 
 static void tap_dead_key(uint16_t keycode) {
   bool leftShiftPressed = (keyboard_report->mods & MOD_BIT(KC_LSFT)) != 0;
@@ -155,28 +103,11 @@ static void tap_composed_key(uint16_t deadkey, uint16_t latinkey) {
   unregister_code16(latinkey);
 }
 
-//static void tap_dead_key(uint16_t deadkey) {
-//  bool leftCtrlPressed = (keyboard_report->mods & MOD_BIT(KC_LCTRL)) != 0;
-//  bool rightShiftPressed = (keyboard_report->mods & MOD_BIT(KC_RCTRL)) != 0;
-//}
+static uint16_t llayer_time;
+static bool llayer_interrupted = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    //case USR_ARING:
-    //  if (record->event.pressed) {
-    //    tap_composed_key(BP_RNGA, BP_A);
-    //  }
-    //  break;
-    //case USR_ADIAE:
-    //  if (record->event.pressed) {
-    //    tap_composed_key(BP_DTRM, BP_A);
-    //  }
-    //  break;
-    //case USR_ODIAE:
-    //  if (record->event.pressed) {
-    //    tap_composed_key(BP_DTRM, BP_O);
-    //  }
-    //  break;
+    switch (keycode) {
     case USR_SQUOT:
       if (record->event.pressed) {
         register_code16(US_QUOT);
@@ -252,7 +183,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code16(KC_RCTRL);
       }
       break;
+    case USR_LLAYER:
+      if (record->event.pressed) {
+        llayer_interrupted = false;
+        llayer_time = record->event.time;
+        layer_on(1);
+      } else {
+        if (!llayer_interrupted && TIMER_DIFF_16(record->event.time, llayer_time) < TAPPING_TERM) {
+          register_code16(KC_BSPACE);
+          unregister_code16(KC_BSPACE);
+        }
+        layer_off(1);
+      }
+      return false;
+      break;
   }
+
+  llayer_interrupted = keycode != USR_LLAYER;
+
   return true;
 }
 
@@ -295,7 +243,7 @@ uint32_t layer_state_set_user(uint32_t state) {
   return state;
 };
 
-void matrix_init_user(void) {
+void keyboard_post_init_user(void) {
   ergodox_right_led_1_off();
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
